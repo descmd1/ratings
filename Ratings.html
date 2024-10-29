@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Ratings and Reviews</title>
+    <link rel="stylesheet" href="styles/ratings.css">
+</head>
+<body>  
+<div class="container">
+    <h3 class="title">Ratings & Reviews</h3>
+    <div class="main">
+    <div>
+    <!-- Rating Summary Section -->
+    <div class="rating-summary" id="ratingSummary">
+      <div class="rate">
+        <h3 id="averageRating">0.0</h3>
+        <h3 class="overall">Overall</h3>
+        <div class="progress-star">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>Based on <span id="totalReviews">0</span> ratings</p>
+      </div>
+      <!-- Progress bars for each star rating -->
+      <div id="ratingProgressBars"></div>
+    </div>
+    <!-- Review Submission Section -->
+      <div class="review-header">
+        <div class="star-rating" id="starRating">
+          <!-- Stars tob be populated by JavaScript -->
+        </div>
+        <textarea id="reviewText" placeholder="Leave a review (optional)" rows="4" style="width: 100%; margin-top: 10px;"></textarea>
+        <button class="submit-btn" onclick="submitReview()">Submit Review</button>
+        <div class="notice">
+        <h3>Rate This Service</h3>
+       <p class="help"> Help others make an informed decision</p>
+       <p class="torate">To rate this service, Please Login to  <a href='#'>MTN Play</a></p>
+      </div>
+      </div>
+    </div>
+    <div>
+      <!-- Reviews List Section -->
+      <div class="review-body">
+        <div class="filter-section">
+            <div class="reviewhead">
+                <h3>Reviews(11)</h3>
+                <select id="sortOption" onchange="sortReviews()">
+                <option value="newest">Newest</option>
+                <option value="oldest">Oldest</option>
+              </select>
+            </div>
+               <!-- To populated All Reviews by JavaScript -->
+              <ul class="reviewlist" id="reviewList"></ul>
+        </div>
+         <!-- Pagination Controls -->
+         <div id="pagination">
+          <button id="prevPage" onclick="changePage(-1)">Previous</button>
+          <span id="pageInfo"></span>
+          <div id="pageNumbers"></div>
+          <button id="nextPage" onclick="changePage(1)">Next</button>
+        </div>
+      </div>
+   </div>
+  </div>
+</div> 
+  <script src="script/ratings.js"></script> 
+</body>
+</html>
