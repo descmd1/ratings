@@ -13,23 +13,35 @@ body {
 .container {
     max-width: 1920px !important;
     margin: 0px auto;
-    padding: 0px 30px;
+    padding: 0px 100px;
     display: flex;
     flex-direction: column;
     /* justify-content: center;
     align-items: center; */
-    padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     color: white;
 }
 .main{
-    display: flex;
     width: 100%;
+    display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding: 0px 
 }
-
+.firstContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    padding: 0px 20px;
+}
+.secondContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    padding: 0px 20px;
+}
 .review-box {
     display: flex;
     width: 100%;
@@ -39,11 +51,13 @@ body {
 .review-header,
 .review-body {
     margin-bottom: 20px;
+    width: 100%;
 }
 .review-header{
     display: flex;
     flex-direction: column;
     gap: 5px;
+    width: 100%;
 }
 .reviewhead{
     width: 100%;
@@ -88,6 +102,7 @@ body {
     font-size: 14px;
     font-family: inherit;
     width: 150px;
+    box-sizing: border-box;
 }
 
 .review-list {
@@ -95,6 +110,9 @@ body {
     padding: 0;
 }
 
+.reviewlist {
+    width: 100%;
+}
 .review-item {
     border-bottom: 1px solid #ddd;
     padding: 10px 0;
@@ -132,10 +150,9 @@ body {
     margin-top: 20px;
     display: flex;
     justify-content: space-between; 
-    align-items: center; 
     width: 100%;
-    gap: 20px; 
-    padding: 10px; 
+    /* gap: 20px;  */
+    /* padding: 10px;  */
     border-radius: 8px; 
 }
 
@@ -150,6 +167,7 @@ body {
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); 
     width: 300px;
     color: white;
+    box-sizing: border-box;
 }
 
 #averageRating {
@@ -197,7 +215,7 @@ p {
     border-radius: 5px;
     overflow: hidden;
     height: 10px;
-    margin: 0 10px;
+    margin: 0px 10px;
 }
 
 .progress {
@@ -218,7 +236,8 @@ p {
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     height: 40px;
-    width: 50%;
+    width: 150px;
+    box-sizing: border-box;
 }
 
 #sortOption:hover {
@@ -258,16 +277,11 @@ p {
 }
 
 #pagination {
-  margin-top: 20px;
   display: flex;
   width: 100%;
   align-items: flex-end;
 }
 
-#pageNumbers {
-  display: flex;
-  gap: 5px;
-}
 
 button {
   padding: 5px 10px;
@@ -321,23 +335,40 @@ button.active {
 
 @media (max-width: 600px) {
     .container {
-        display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 10px;
+        padding: 0px  10px 0px 10px ;
         box-shadow: none;
         border-radius: 0;
+        width: 100%;
     }
     .main{
         width: 100%;
         flex-direction: column;
-        padding: 0px;
+        padding: 0px  10px 0px 10px ;
+        justify-content: center;
+        align-items: center;
+    }
+    .firstContainer{
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 10px;
+    }
+    .secondContainer{
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        padding: auto;
+        padding: 0px 10px;
     }
     .rating-summary {
         flex-direction: column;
         width: 100%;
-        padding: 5px;
+        padding: 0px 10px;
+        justify-content: center;
+        align-items: center;
     }
     .rate{
         width: 100%;
@@ -345,7 +376,7 @@ button.active {
     .review-box {
         flex-direction: column;
         width: 100%;
-        padding: 5px;
+        padding: 0px 10px;
     }
     .submit-btn{
         width: 100%;
@@ -353,6 +384,7 @@ button.active {
     .review-header {
         width: 100%;
         gap: 15px;
+        padding: 0px 10px;
     }
     .filter-section {
         width: 100%;
@@ -362,18 +394,36 @@ button.active {
     }
     .allreviewbox ul{
         width: 100%;
+        padding: 0px 10px;
+        align-items: center;
+        justify-content: center;
     }
     .reviewhead{
         width: 100%;
        flex-direction: column;
+       padding: 0px 10px;
     }
     .reviewhead h3{
        text-align: center;
     }
     #sortOption {
         width: 100%;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 10px;
     }
     #pagination{
+        display: flex;
         width: 100%;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0px
     }
+    .reviewlist{
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 10px;
+    }
+
 }

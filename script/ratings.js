@@ -224,7 +224,7 @@ function displayReviews() {
     reviewList.appendChild(reviewItem);
   });
 
-  // Add event listeners for the ellipsis icon and actions
+  // event listeners for the ellipsis icon and actions
   document.querySelectorAll('.ellipsis-icon').forEach(icon => {
     icon.addEventListener('click', toggleActionMenu);
   });
@@ -248,7 +248,7 @@ function handleEditReview(event) {
   const reviewIndex = event.target.getAttribute('data-index');
   const review = reviews[reviewIndex];
   
-  // Prompt user to edit the review (could also use a modal or form)
+  // Prompt user to edit the review c
   const newReviewText = prompt('Edit your review:', review.text);
   if (newReviewText !== null) {
     review.text = newReviewText;

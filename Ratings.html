@@ -10,7 +10,7 @@
 <div class="container">
     <h3 class="title">Ratings & Reviews</h3>
     <div class="main">
-    <div>
+    <div class="firstContainer">
     <!-- Rating Summary Section -->
     <div class="rating-summary" id="ratingSummary">
       <div class="rate">
@@ -36,7 +36,7 @@
       </div>
       </div>
     </div>
-    <div>
+    <div class="secondContainer">
       <!-- Reviews List Section -->
       <div class="review-body">
         <div class="filter-section">
@@ -51,9 +51,8 @@
               <ul class="reviewlist" id="reviewList"></ul>
         </div>
          <!-- Pagination Controls -->
-         <div id="pagination">
+         <div class="pagination" id="pagination">
           <button id="prevPage" onclick="changePage(-1)">Previous</button>
-          <span id="pageInfo"></span>
           <div id="pageNumbers"></div>
           <button id="nextPage" onclick="changePage(1)">Next</button>
         </div>
