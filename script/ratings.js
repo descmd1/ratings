@@ -98,28 +98,63 @@ function updateRatingSummary() {
   const totalReviews = reviews.length;
   const ratingBaseOnStars = ratingData.reduce((sum, { star, count }) => sum + (star * count), 0);
   const averageRating = (ratingBaseOnStars / totalReviews) || 0;
+
+  // Update the average rating text and total reviews
   document.getElementById('averageRating').innerText = averageRating.toFixed(1);
   document.getElementById('totalReviews').innerText = totalReviews;
 
-  // Update progress bars
+  // Display stars according to the average rating
+  const starContainer = document.querySelector('.progress-star');
+  starContainer.innerHTML = ''; // Clear existing stars
+
+  // Calculate full, half, and empty stars based on average rating
+  const fullStars = Math.floor(averageRating);
+  const hasHalfStar = averageRating % 1 >= 0.5;
+  const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+
+  // Append full stars
+  for (let i = 0; i < fullStars; i++) {
+    const fullStar = document.createElement('span');
+    fullStar.innerHTML = '&#9733;'; // Filled star
+    fullStar.style.color = 'gold';
+    starContainer.appendChild(fullStar);
+  }
+
+  // Append half star if needed
+  if (hasHalfStar) {
+    const halfStar = document.createElement('span');
+    halfStar.innerHTML = '&#9733;';
+    halfStar.style.color = 'gold';
+    halfStar.style.opacity = '0.5'; // Styling to indicate half-filled star
+    starContainer.appendChild(halfStar);
+  }
+
+  // Append empty stars
+  for (let i = 0; i < emptyStars; i++) {
+    const emptyStar = document.createElement('span');
+    emptyStar.innerHTML = '&#9733;';
+    emptyStar.style.color = '#ccc'; // empty stars
+    starContainer.appendChild(emptyStar);
+  }
+
+  // Update progress bars for each star rating
   const ratingProgressBars = document.getElementById('ratingProgressBars');
   ratingProgressBars.innerHTML = ''; // Clear existing bars
   ratingData.forEach(data => {
     const progressBarContainer = document.createElement('div');
     progressBarContainer.className = 'progress-bar-container';
 
-   
-const label = document.createElement('span');
-label.innerText = `${data.star} `; 
+    // Label with star rating and star icon
+    const label = document.createElement('span');
+    label.innerText = `${data.star} `;
+    
+    const star = document.createElement('span');
+    star.innerHTML = '&#9733;';
+    star.style.color = 'gold';
 
-const star = document.createElement('span');
-star.innerHTML = '&#9733;'; 
-star.style.color = 'gold'; 
+    label.appendChild(star);
 
-// Append the star to the label
-label.appendChild(star);
-
-
+    // Progress bar
     const progressBar = document.createElement('div');
     progressBar.className = 'progress-bar';
     const percentage = (data.count / totalReviews * 100) || 0;
@@ -129,12 +164,13 @@ label.appendChild(star);
     progress.className = 'progress';
     progress.style.width = `${percentage}%`;
 
-    // Create a span to display the percentage
+    // Percentage label
     const percentageLabel = document.createElement('span');
-    percentageLabel.innerText = `${percentage.toFixed(1)}%`; // Format the percentage
-    percentageLabel.style.marginLeft = '8px'; 
-    percentageLabel.style.fontWeight = 'bold'; 
+    percentageLabel.innerText = `${percentage.toFixed(1)}%`;
+    percentageLabel.style.marginLeft = '8px';
+    percentageLabel.style.fontWeight = 'bold';
 
+    // Append elements to progress bar container
     progressBar.appendChild(progress);
     progressBarContainer.appendChild(label);
     progressBarContainer.appendChild(progressBar);
@@ -152,7 +188,7 @@ function displayReviews() {
     return sortOption === 'newest' ? b.date - a.date : a.date - b.date;
   });
 
-  sortedReviews.forEach(review => {
+  sortedReviews.forEach((review, index) => {
     const reviewItem = document.createElement('li');
     reviewItem.className = 'review-item';
 
@@ -162,17 +198,74 @@ function displayReviews() {
     for (let i = 1; i <= 5; i++) {
       const star = document.createElement('span');
       star.innerText = '★';
-      star.className = (i <= review.rating) ? 'star selected' : 'star unselected'; // Select or unselect star
+      star.className = (i <= review.rating) ? 'star selected' : 'star unselected';
       starContainer.appendChild(star);
     }
 
     // Append the star rating, user name, and review text to the review item
     reviewItem.appendChild(starContainer);
     reviewItem.innerHTML += `<p><strong>${review.user}</strong></p>`;
-    reviewItem.innerHTML += `<p><small>${formatDate(review.date)}</small></p>`; // Use formatDate function here
-    reviewItem.innerHTML += `<p> ${review.text || 'No review text provided.'}</p>`;
+    reviewItem.innerHTML += `<p><small>${formatDate(review.date)}</small></p>`;
+    reviewItem.innerHTML += `<p>${review.text || 'No review text provided.'}</p>`;
+
+    // Add the 3-dot icon with edit/delete options
+    const actionContainer = document.createElement('div');
+    actionContainer.className = 'review-action-btn';
+    actionContainer.innerHTML = `
+      <span class="ellipsis-icon">⋮</span>
+      <div class="action-menu" style="display: none;">
+        <a href="#" data-index="${index}" class="edit-review">Edit</a>
+        <a href="#" data-index="${index}" class="delete-review">Delete</a>
+      </div>
+    `;
+
+    // Append the action container to the review item
+    reviewItem.appendChild(actionContainer);
     reviewList.appendChild(reviewItem);
   });
+
+  // Add event listeners for the ellipsis icon and actions
+  document.querySelectorAll('.ellipsis-icon').forEach(icon => {
+    icon.addEventListener('click', toggleActionMenu);
+  });
+  document.querySelectorAll('.edit-review').forEach(btn => {
+    btn.addEventListener('click', handleEditReview);
+  });
+  document.querySelectorAll('.delete-review').forEach(btn => {
+    btn.addEventListener('click', handleDeleteReview);
+  });
+}
+
+// Function to toggle the action menu
+function toggleActionMenu(event) {
+  const menu = event.target.nextElementSibling;
+  menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+}
+
+// Function to handle editing a review
+function handleEditReview(event) {
+  event.preventDefault();
+  const reviewIndex = event.target.getAttribute('data-index');
+  const review = reviews[reviewIndex];
+  
+  // Prompt user to edit the review (could also use a modal or form)
+  const newReviewText = prompt('Edit your review:', review.text);
+  if (newReviewText !== null) {
+    review.text = newReviewText;
+    displayReviews(); // Re-render reviews after editing
+  }
+}
+
+// Function to handle deleting a review
+function handleDeleteReview(event) {
+  event.preventDefault();
+  const reviewIndex = event.target.getAttribute('data-index');
+
+  // Confirm deletion and remove the review if confirmed
+  if (confirm('Are you sure you want to delete this review?')) {
+    reviews.splice(reviewIndex, 1);
+    displayReviews(); // Re-render reviews after deletion
+  }
 }
 
 // Function to display reviews with pagination
