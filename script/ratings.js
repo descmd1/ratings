@@ -13,16 +13,16 @@ let ratingData = [
 
 // Array of fake comments with user names and dates
 const fakeComments = [
-  { user: "Alice", date: "2024-10-01", comment: "Amazing service! Highly recommend." },
+  { user: "Alice", date: "2024-10-01", comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis repellendus error, illum quia voluptatem repudiandae consequatur eaque id, nisi, officia ullam! Est nisi illo aliquam voluptates libero? Minima beatae fugit, similique commodi voluptatibus illum ducimus dolorum officiis repellendus repudiandae mollitia qui culpa sed sint! Deleniti illo praesentium dolores dolorum earum.." },
   { user: "Bob", date: "2024-10-02", comment: "Not what I expected, but still decent." },
   { user: "Charlie", date: "2024-10-03", comment: "Had a great experience!" },
-  { user: "David", date: "2024-10-04", comment: "Service was okay, could use some improvement." },
+  { user: "David", date: "2024-10-04", comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis repellendus error, illum quia voluptatem repudiandae consequatur eaque id, nisi, officia ullam! Est nisi illo aliquam voluptates libero? Minima beatae fugit, similique commodi voluptatibus illum ducimus dolorum officiis repellendus repudiandae mollitia qui culpa sed sint! Deleniti illo praesentium dolores dolorum earum.." },
   { user: "Eve", date: "2024-10-05", comment: "Absolutely loved it! Will come back again." },
   { user: "Frank", date: "2024-10-06", comment: "Would not recommend, had a bad experience." },
-  { user: "Grace", date: "2024-10-07", comment: "Service exceeded my expectations." },
+  { user: "Grace", date: "2024-10-07", comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis repellendus error, illum quia voluptatem repudiandae consequatur eaque id, nisi, officia ullam! Est nisi illo aliquam voluptates libero? Minima beatae fugit, similique commodi voluptatibus illum ducimus dolorum officiis repellendus repudiandae mollitia qui culpa sed sint! Deleniti illo praesentium dolores dolorum earum." },
   { user: "Hank", date: "2024-10-08", comment: "Very satisfied with the service provided." },
   { user: "Ivy", date: "2024-10-09", comment: "The staff were friendly and helpful." },
-  { user: "Jack", date: "2024-10-10", comment: "I will definitely be back!" }
+  { user: "Jack", date: "2024-10-10", comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis repellendus error, illum quia voluptatem repudiandae consequatur eaque id, nisi, officia ullam! Est nisi illo aliquam voluptates libero? Minima beatae fugit, similique commodi voluptatibus illum ducimus dolorum officiis repellendus repudiandae mollitia qui culpa sed sint! Deleniti illo praesentium dolores dolorum earum." }
 ];
 
 // Combine old reviews with user names and dates into reviews array
