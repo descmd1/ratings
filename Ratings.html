@@ -2,13 +2,111 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>User Ratings and Reviews</title>
+  <!-- Link to Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles/ratings.css">
+    <link rel="stylesheet" href="styles/header.css">
 </head>
 <body>  
+  <!--Nav Starts-->
+  <header>
+    <nav>
+      <div class="logo-con">
+        <img src="/images/mtn-logo.svg" alt="logo" width="100px" height="50px"/>
+          <ul class="nav-items">
+            <li>Video</li>
+            <li>Games</li>
+            <li>Lifestyle</li>
+            <li>Music</li>
+          </ul>
+      </div>
+      <!-- Hamburger menu icon -->
+  <div class="hamburger-menu" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+    <script src="script/hamburger.js"></script>
+  </div>
+      <div class="search-con">
+        <img src="images/magnifying-glass.png" alt="search" width="20px" height="20px" class="search"/>
+        <div class="custom-select">
+          <div class="selected-option">
+            <i class="fas fa-user fade"></i> John Doe
+            <span class="dropdown-arrow"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <div class="options">
+            <!-- <div class="option" data-value="name">
+              <i class="fas fa-user fade"></i> John Doe
+            </div> -->
+            <div class="option" data-value="myaccount">
+              <i class="fas fa-user-circle fade"></i> My Account
+            </div>
+            <div class="option" data-value="subscription">
+              <i class="fas fa-book fade"></i> Subscription
+            </div>
+            <div class="option" data-value="offers">
+              <i class="fas fa-tag fade"></i> Offers
+            </div>
+            <div class="option" data-value="logout">
+              <i class="fas fa-sign-out-alt fade"></i> Logout
+            </div>
+          </div>
+          <script src="script/header.js"></script>
+        </div>
+        <div class="theme-toggle">
+          <i id="sun-icon" class="fas fa-sun"></i>
+          <i id="moon-icon" class="fas fa-moon"></i>
+        </div> 
+        <script src="script/mode.js"></script>       
+      </div>
+    </nav>
+  </header>
+    <!--Nav Ends-->
 <div class="container">
-    <h3 class="title">Ratings & Reviews</h3>
+  <section>
+    <div class="app-games">
+    <p>Home <i class="fas fa-circle"></i></p>
+    <h3>AppPlus Games</h3>
+  </div>
+<div class="shear">
+  <p>Share with</p>
+  <img src="images/facebook-app-symbol.png" alt="img" width="12px" height="14px"/>
+  <img src="images/whatsapp.png" alt="img" width="12px" height="14px"/>
+  <img src="images/twitter.png" alt="img" width="12px" height="14px"/>
+  <img src="images/email.png" alt="img" width="12px" height="14px"/>
+  <img src="images/note.png" alt="img" width="12px" height="14px"/>
+</div>
+  </section>
+  <!--Middle Card Starts-->
+  <div class="card">
+    <div class="card-content">
+      <img src="images/applus.PNG" alt="img" width="100px" height="100px">
+      <div class="card-title">AppPlus Games</div>
+      <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <span>0</span>
+      </div>
+    </div>
+    <div class="card-image">
+      <div class="first">
+      <img src="/images/boomplay1.png" alt="img" />
+    </div>
+  <div class="second">
+      <img src="/images/boomplay1.png" alt="img" />
+    </div>
+  <div class="third">
+    <img src="/images/boomplay1.png" alt="img" />
+    </div>
+      <script src="script/cardImage.js"></script>
+    </div>
+  </div>
+    <!--Middle Card Ends-->
     <div class="main">
     <div class="firstContainer">
     <!-- Rating Summary Section -->
@@ -27,12 +125,12 @@
         <div class="star-rating" id="starRating">
           <!-- Stars tob be populated by JavaScript -->
         </div>
-        <textarea id="reviewText" placeholder="Leave a review (optional)" rows="4" style="width: 100%; margin-top: 10px;"></textarea>
+        <textarea id="reviewText" placeholder="Leave a review (optional)" rows="3" style="width: 100%; margin-top: 10px;"></textarea>
         <button class="submit-btn" onclick="submitReview()">Submit Review</button>
         <div class="notice">
         <h3>Rate This Service</h3>
        <p class="help"> Help others make an informed decision</p>
-       <p class="torate">To rate this service, Please Login to  <a href='#'>MTN Play</a></p>
+       <p class="torate">To rate this service, please subscribe</p>
       </div>
       </div>
     </div>
@@ -40,6 +138,14 @@
       <!-- Reviews List Section -->
       <div class="review-body">
         <div class="filter-section">
+          <div class="title">
+            <ul>
+              <li>Description</li>
+              <li> Ratings & Reviews</li>
+              <li>FAQs</li>
+            </ul>
+           
+          </div>
             <div class="reviewhead">
                 <h3>Reviews(11)</h3>
                 <select id="sortOption" onchange="sortReviews()">
@@ -47,8 +153,8 @@
                 <option value="oldest">Oldest</option>
               </select>
             </div>
-               <!-- To populated All Reviews by JavaScript -->
-              <ul class="reviewlist" id="reviewList"></ul>
+               <!-- To populated All Reviews by JavaScript -->  
+              <ul class="review-list" id="reviewList"></ul>
         </div>
          <!-- Pagination Controls -->
          <div class="pagination" id="pagination">
@@ -59,7 +165,83 @@
       </div>
    </div>
   </div>
-</div> 
   <script src="script/ratings.js"></script> 
+</div> 
+<section class="end-box">
+  <div class="endItem">
+    <div class="relatedContent">
+    <h3>Related Content</h3>
+  <div class="end">
+  <div> <img src="/images/one.PNG" alt="img"/> <p>Apple Music</p></div>
+  <div><img src="/images/two.PNG" alt="img"/> <p>Spin N Win</p></div>
+  <div><img src="/images/three.PNG" alt="img"/> <p>Salary4life</p></div>
+  <div><img src="/images/four.PNG" alt="img"/> <p>Lucky Number</p></div>
+  <div><img src="/images/five.PNG" alt="img"/> <p>GameWin JP</p></div>
+</div>
+</div>
+<div class="end-flag">
+  <div>
+    <select>
+      <option value="select">Seclect an option</option>
+    </select>
+    <p>N100 <span>AppPlus Games Daily</span></p>
+  </div>
+  <button>Subscribe</button>
+</div>
+<div class="end-notebox">
+  <div class="info">
+    <p>Stay up to date with instant notifications.</p>
+    <p>Receive purchase alerts, new product arrivals, and exclusive offers and deals.</p>
+  </div>
+  <div>
+    <label>Sign up for emails</label>
+    <textarea type="text" placeholder="xyz@gmail.com"></textarea>
+  </div>
+</div>
+<!--Footer starts-->
+<footer>
+<ul>
+  <h3><span class="highlight">Shop</span></h3>
+  <li>Mobile Services</li>
+ <li>ICT</li> 
+ <li>Broadband</li> 
+</ul>
+<ul>
+  <h3><span class="highlight">Business</span> solution</h3>
+  <li>Broadband</li>
+</ul>
+<ul>
+  <h3><span class="highlight">Legal</span></h3>
+  <li>Terms & conditions</li> 
+  <li>Privacy policy</li>
+</ul>
+<ul>
+  <h3><span class="highlight">Help</span></h3>
+  <li>Feedback</li>
+  <li>FAQs</li>
+</ul>
+<ul>
+  <h3><span class="highlight">MTN</span> Nigeria</h3>
+  <li>MTN Business</li>
+<li>For Investors</li>
+<li>MTN Foundations</li>
+<li>Careers</li>
+</ul>
+
+</footer>
+<div class="casted">
+  <img src="/images/logo-yellow.png" alt="logo" width="50px" height="50px"/>
+  <p>© 2024 MTN Nigeria Communications PLC, All rights reserved. Privacy Policy & Data Protection</p>
+  <div class="icons">
+    <img src="images/facebook-app-symbol.png" alt="Facebook" />
+    <img src="images/whatsapp.png" alt="WhatsApp" />
+    <img src="images/youtube.png" alt="YouTube" />
+    <img src="images/icons8-linkedin-50.png" alt="LinkedIn" />
+    <img src="images/youtube.png" alt="YouTube" />
+</div>
+</div>
+<!--Footer ends-->
+</div>
+</section>
 </body>
 </html>

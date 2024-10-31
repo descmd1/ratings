@@ -8,19 +8,28 @@
 </head>
 <body>
   <div id="loginContainer">
-    <h2>Login</h2>
     <form id="loginForm">
-      <label for="username">Username</label>
-      <input type="text" id="username" name="username" required />
-      
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" required />
-      
-      <button type="submit">Login</button>
+      <div class="close">
+        <p>x</p>
+      </div>
+      <div class="otp">
+      <h3>Login with a Mobile number</h3>
+      <p>(The OTP will be sent to this number.)</p>
+    </div>
+      <label for="username"></label>
+      <div class="info">
+      <input type="text" id="username" placeholder="Mobile Number" 
+      name="username" required />
+      <button type="submit">
+       <img src="images/chevron.png" alt="img"/>
+      </button>
+    </div>
+      <p id="errorMessage"></p>
     </form>
-    <p id="errorMessage"></p>
-  </div>
-
+    <div class="ImageCon">
+      <img src="images/pixs.PNG" alt="img" />
+    </div>
+    </div>
   <script src="script/login.js"></script>
 </body>
 </html>

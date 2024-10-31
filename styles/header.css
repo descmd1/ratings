@@ -1,0 +1,165 @@
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  body.dark-mode {
+    background-color: #333;
+    color: #f1f1f1;
+  }
+
+  /* Hide the moon icon initially */
+  #sun-icon {
+    display: none;
+  }
+  
+  /* Style for the icons */
+  .theme-toggle i {
+    cursor: pointer;
+    font-size: 14px;
+    margin: 0 5px;
+    color: #fff;
+  }
+  
+/* header {
+    width: 100%;
+    background-color: #333;
+    height: 50px;
+    position: fixed;
+} */
+header {
+    width: 100%;
+    background-color: #333;
+    height: 50px;
+    position: fixed;
+    top: 0;
+    z-index: 1000; /* Ensures it stays on top of other content */
+}
+
+
+nav {
+    max-width: 1920px !important;
+    margin: 0 auto;
+    padding: 0px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-con{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+.search-con{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.nav-items{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    list-style-type: none;
+}
+li{
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+}
+.custom-select {
+    position: relative;
+    width: 150px;
+    font-family: Arial, sans-serif;
+    border-radius: 50px;
+  }
+  
+  .selected-option, .option {
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .selected-option {
+    background-color: #444;
+    position: relative;
+    border-radius: 50px;
+    color: white;
+    height: 15px;
+    font-size: 14px;
+    font-family: sans-serif;
+  }
+  
+  .dropdown-arrow {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    color: white;
+  }
+  
+  .options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    z-index: 1;
+  }
+  
+  .options .option:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .custom-select.active .options {
+    display: block;
+  }
+  
+  .fade{
+    color: #fff;
+    border-radius: 50px;
+    background-color: #333;
+    padding: 8px;
+  }
+  .search {
+    filter: brightness(0) invert(1);
+  }
+  .hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .hamburger-menu div {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 4px 0;
+    transition: 0.4s;
+  }
+  
+  /* Show hamburger icon on smaller screens */
+  @media (max-width: 768px) {
+    .hamburger-menu {
+      display: flex;
+    }
+  
+    .nav-items {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background-color: #fff;
+      padding: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  
+    .nav-items.active {
+      display: flex;
+    }
+  }

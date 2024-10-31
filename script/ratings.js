@@ -192,6 +192,14 @@ function displayReviews() {
     const reviewItem = document.createElement('li');
     reviewItem.className = 'review-item';
 
+    const userIcon = document.createElement('i');
+    userIcon.className = 'fas fa-user';
+    userIcon.style.color = 'blue';
+    userIcon.style.fontSize = '24px';
+    userIcon.style.marginRight = '10px'; // Add space between icon and text
+
+    // Append the user icon to the review item
+    reviewItem.appendChild(userIcon);
     // Create stars based on the rating
     const starContainer = document.createElement('div');
     starContainer.className = 'star-rating';
