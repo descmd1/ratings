@@ -1,67 +1,228 @@
 
-body {
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
-    width: 100vw;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #000;
+    width: 100vw;
+    font-family: Arial, sans-serif;
+    background: #000;
+  gap: 50px;
 }
-.container {
+
+main {
     max-width: 1920px !important;
-    margin: 0px auto;
+    margin: 0 auto;
     padding: 0px 100px;
+    align-items: center;
     display: flex;
     flex-direction: column;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    color: white;
-    margin-top: 60px;
+    gap: 50px;
 }
-.main{
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 50px;
+    margin-top: 50px;
+}
+
+section{
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 0px 
+  }
+.app-games{
+    display: flex;
+    gap: 15px;
+    align-items: center;
 }
+.app-games p{
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: 200;
+    color: #ccc;
+}
+.app-games p i{
+    font-size: 8px;
+    color: #fff;
+}
+.app-games h3{
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: 200;
+    color: #fff;
+}
+.shear{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.shear p{
+    font-size: 12px;
+    font-family: sans-serif;
+    font-weight: 200;
+    color: #ccc;
+}
+
+.shear img {
+    filter: brightness(0) invert(1);
+    border-radius: 99px;
+  }
+.shuffle-image {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #744703, #0e0909be);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px 60px;
+    overflow: hidden; 
+}
+
+.ratings {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    flex: 1;
+    max-width: 150px;
+}
+
+.ratings img {
+    width: 100px;
+    height: 100px;
+}
+
+.ratings h3 {
+    font-size: 24px;
+    color: #fff;
+}
+
+.stars {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+}
+
+.stars .filled {
+    color: #ffd700;
+}
+
+.stars p {
+    color: #fff;
+    font-size: 20px;
+}
+
+.groupImg {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    flex: 1;
+    max-width: 400px;
+    overflow: hidden; /* Prevents images from overflowing */
+    border-radius: 10px; /* Matches the rounded container */
+}
+
+.group {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.one {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    border-radius: 10px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    object-fit: cover;
+}
+
+ .two{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    border-radius: 10px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    object-fit: cover;
+}
+.three {
+    width: 50px;
+    height: 100px;
+    position: absolute;
+    border-radius: 10px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    object-fit: cover;
+}
+.one {
+    left: 5%;
+    top: 15%;
+    z-index: 1;
+}
+
+.two {
+    left: 45%;
+    top: 15%;
+    z-index: 2;
+}
+
+.three {
+    left: 20%;
+    top: 2%;
+    height: 100px;
+    z-index: 3;
+}
+
+.groupImg img.active {
+    transform: scale(1.05);
+    z-index: 1;
+}
+
+.group.active {
+    opacity: 1;
+}
+
+
 .firstContainer{
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 40%;
     gap: 15px;
-    padding: 0px 20px;
+    margin-top: -45px;
 }
 .secondContainer{
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 60%;
     gap: 15px;
-    padding: 0px 20px;
+    margin-top: -30px;
 }
 .review-box {
     display: flex;
+    flex-direction: column;
     width: 100%;
-    gap: 100px;
+    border-bottom: 1px dotted #ddd;
 }
 
-.review-header,
-.review-body {
-    margin-bottom: 20px;
-    width: 100%;
-}
-.review-header{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    width: 100%;
-}
 .reviewhead{
     width: 100%;
     display: flex;
     justify-content: space-between;
+    padding-left: 4px;
 }
 #reviewText{
     outline: none;
@@ -135,20 +296,26 @@ body {
     gap: 10px;
     margin: 0;
 }
-.help{
-    font-size: 16px;
-    font-family: inherit;
-    font-weight: 500;
-    color: #666;   
-}
-.torate{
+
+.notice p{
     font-size: 14px;
     font-family: inherit;
     font-weight: 700;
     color: #fff;    
 }
-.torate a{
-    color: gold;    
+.play-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 25px; /* Rounded corners */
+    padding: 10px 18px; /* For text width */
+    outline: none;
+    background-color: #ffd700;
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: inherit;
 }
 .filter-section {
     display: flex;
@@ -160,7 +327,8 @@ body {
 .rating-summary {
     margin-top: 20px;
     display: flex;
-    justify-content: space-between; 
+    align-items: center;
+    gap: 10px;
     width: 100%;
     border-radius: 8px; 
 }
@@ -174,7 +342,7 @@ body {
     border: 1px solid #444; 
     border-radius: 8px; 
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); 
-    width: 300px;
+    width: 200px;
     color: white;
     box-sizing: border-box;
 }
@@ -231,6 +399,188 @@ p {
     height: 100%;
     background-color: gold;
 }
+
+#Tab2{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.rating-container {
+    width: 100%;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* Individual rating row */
+.rating-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.rating-label {
+    width: 20px;
+    font-size: 16px;
+}
+
+/* Progress bar container */
+.rating-bar-container {
+    width: 100%;
+    height: 10px;
+    background-color: #444;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 0 10px;
+}
+
+/* Actual progress bar */
+.rating-bar {
+    height: 100%;
+    background-color: #ffd700;
+    width: 0; 
+    border-radius: 5px;
+}
+
+/* Percentage on the right */
+.rating-percentage {
+    font-size: 16px;
+    width: 40px;
+    text-align: right;
+}
+
+.review-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Header and filter */
+.review-header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.review-header h2 {
+    font-size: 18px;
+    font-weight: normal;
+    color: #fff;
+}
+
+.filter-dropdown {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    border: 1px solid #555;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.filter-dropdown::after {
+    content: "▼";
+    font-size: 10px;
+}
+
+/* Review box */
+.review-box {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.review-header-info {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+
+.review-header-info i.fa {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: white;
+}
+
+
+.review-info {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    padding: 10px;
+}
+
+/* Rating stars and date */
+.rating {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 5px;
+    margin-top: 5px;
+    font-size: 14px;
+    padding: 10px;
+}
+.filled{
+    color: #ffd700;
+    font-size: 12px;
+}
+.star {
+    color: #ffd700;
+}
+
+.review-date {
+    color: #888;
+    font-size: 14px;
+}
+
+/* Review content */
+.review-text {
+    margin: 10px 0;
+    font-size: 15px;
+    color: white;
+    padding-left: 10px;
+}
+
+/* Helpful button */
+.helpful-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #888;
+}
+
+.helpful-button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid #ffd700;
+    border-radius: 15px;
+    color: #ffd700;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.helpful-button:hover {
+    background-color: #ffd700;
+    color: #1a1a1a;
+}
+
+.thumb-icon {
+    font-size: 16px;
+}
+
 #sortOption {
     background-color: #333;
     color: #f1f1f1;
@@ -292,264 +642,109 @@ p {
 }
 
 
-button {
-  padding: 5px 10px;
-  cursor: pointer;
-  border-radius: 8px;
+.tabContainer{
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-color: #000;
 }
 
-button.active {
-  background-color: gold; 
-  color: white;
-  font-weight: bold;
-}
-.title{
-    padding: 0;
-    justify-content: flex-start;
+.tabs {
     display: flex;
-    width: 100%;
-    gap: 15px;
-}
- .title ul{
-    padding: 0 ;
     justify-content: flex-start;
-    display: flex;
-    width: 100%;
-    gap: 35px;
-    border-bottom: 1px solid #fff;
-}
- .title ul li{
-    font-size: 16px;
-    color: #ccc;
-    font-weight: 600;
-    font-family: sans-serif;
-}
-.title ul li:hover{
-    border-bottom: 5px solid goldenrod;
-}
-.title ul li:active{
-    border-bottom: 5px solid goldenrod;
-    color: goldenrod;
-}
-.review-action-btn {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
+    gap: 50px;
   }
-
+  .tabs-btn-box{
+    width: 59%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 1px solid white;
+    margin-left: auto;
+  }
+  .tabbox{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
   
-  .ellipsis-icon {
+  .tab-link {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: transparent;
+  flex-grow: 1;
+  }
+  
+  .tab-link.active {
+    color: gold; 
+    background-color: transparent;
+    border-bottom: 2px solid gold;
     font-size: 18px;
   }
   
-  .action-menu {
-    display: none;
-    position: absolute;
-    top: 20px;
-    right: 0;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    padding: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    z-index: 10;
-  }
-  
-  .action-menu a {
-    display: block;
-    padding: 5px;
-    text-decoration: none;
-    color: #333;
-  }
-  
-  .action-menu a:hover {
-    background-color: #f0f0f0;
-  }
-  
-  section{
+  .tab-content {
+    margin-top: 20px;
     width: 100%;
+  }
+  
+  .tab-panel {
+    display: none; /* Hide all panels by default */
+  }
+  
+  .tab-panel.active {
+    display: block; 
     display: flex;
     justify-content: space-between;
   }
-.app-games{
-    display: flex;
-    gap: 15px;
-    align-items: center;
-}
-.app-games p{
-    font-size: 16px;
-    font-family: sans-serif;
-    font-weight: 200;
-    color: #ccc;
-}
-.app-games p i{
-    font-size: 8px;
-    color: #fff;
-}
-.app-games h3{
-    font-size: 16px;
-    font-family: sans-serif;
-    font-weight: 200;
-    color: #fff;
-}
-.shear{
-    display: flex;
-    gap: 15px;
-    align-items: center;
-}
-.shear p{
-    font-size: 12px;
-    font-family: sans-serif;
-    font-weight: 200;
-    color: #ccc;
-}
-
-.shear img {
-    filter: brightness(0) invert(1);
-    border-radius: 99px;
-  }
-
-  .card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  .tabInfo{
     width: 100%;
-    height: 300px;
-    padding: 20px;
-    background: linear-gradient(135deg, #3c2400, #000000);/* Background color for the card */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    color: #fff;
+    display: flex;
+    flex-direction: column;
   }
-
-  .card-content {
-    width: 40%;
-    padding: 20px;
-  }
-
-    .card-image {
-        position: relative; 
-        width: 300px; 
-        height: 300px; 
-        display: flex;
-        margin-left: 300px;
-
-    }
-    
-    .card-image .first {
-        width: 200px; 
-        height: 200px; 
-        position: absolute;
-        border-radius: 10px;
-        transition: transform 0.3s ease; 
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    }
-    .card-image .second {
-        width: 200px;
-        height: 200px; 
-        position: absolute;
-        border-radius: 10px;
-        transition: transform 0.3s ease; 
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    }
-    .card-image .third {
-        width: 250px; 
-        height: 250px; 
-        position: absolute;
-        border-radius: 10px;
-        transition: transform 0.3s ease; 
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    }
-    
-    .card-image .first {
-        left: -90px; 
-        z-index: 1;
-    }
-    
-    .card-image .second {
-        left:130px; 
-        z-index: 1; 
-        transform: scale(1.1); 
-    }
-    
-    .card-image .third{
-        left: 0px; 
-        z-index: 10;
-    }
-    
-  .card-image img.active {
-    transform: scale(1.05); 
-    z-index: 1;
-  }
-  
-  .card-title {
-    font-size: 24px;
-    margin: 10px 0;
-  }
-
-  .rating {
+  .imageBox img{
+    width: 100%;
+    height: 500px;
+    margin-top: -45px;
+}
+.imageBox{
+    width: 69%;
     display: flex;
     align-items: center;
-    gap: 5px;
+}
+  .tab-panel.active p{
+    color: #666;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 32px;
   }
 
-  .rating i {
-    color: #ccc;
-  }
-
-  .rating .filled {
+.tab-panel.active p span{
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+.tab-panel.active button{
+    background: none;
     color: #ffd700;
-  }
-  .rating span{
-    font-size: 20px;
-    color: #fff;
-  }
-  .card-image {
-    position: relative;
-    width: 60%;
     display: flex;
-    justify-content: center;
     align-items: center;
-  }
+    border: none;
+    outline: none;
+    gap: 3px;
+}
 
-  .card-image img {
-    width: 80%;
-    border-radius: 10px;
-    position: absolute;
-    transform: scale(1);
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  }
-
-  .card-image img:hover {
-    transform: scale(1.1);
-  }
-
-  .card-image img:nth-child(2) {
-    left: -20px;
-    z-index: 1;
-  }
-
-  .card-image img:nth-child(3) {
-    right: -20px;
-    z-index: 2;
-  }
-
-  .end-box{
+#Tab2{
     width: 100%;
     display: flex;
-    flex-direction: column;
-  }
-  .endItem{
-    max-width: 1920px !important;
-    margin: 0 auto;
-    padding: 0px 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     align-items: center;
-    gap: 30px;
-  }
-  .relatedContent{
+    justify-content: space-between;
+    margin-top: 25px;
+}
+.relatedContent{
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -592,20 +787,61 @@ button.active {
     font-size: 14px;
     color: #fff;
   }
-  .end-flag{
+
+.seamless{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.seamless h3{
+    font-size: 18px;
+    font-weight: 700;
+    font-family: inherit;
+    color: #fff;
+}
+.seamless p{
+    font-size: 18px;
+    font-weight: normal;
+    font-family: inherit;
+    color: #dfdfdf;
+}
+.seamless button{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: #ffd700;
+    font-size: normal;
+    font-weight: normal;
+    font-family: inherit;
+    background: transparent;
+    gap: 3px;
+}
+
+.dailyGames{
     width: 100%;
     display:  flex;
     justify-content: space-between;
     align-items: center;
     background-color: #444;
-    padding: 8px
+    padding: 10px 0px;
   }
-  .end-flag div{
+  .dailyCons{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1920px !important;
+    margin: 0px auto;
+    padding: 0px 100px;
+  }
+  .opt{
     display: flex;
     flex-direction: column;
     gap: 5px;
   }
-  .end-flag div select{
+  .dailyCons div select{
     width: 150px;
     font-size: 14px;
     color: gold;
@@ -614,17 +850,17 @@ button.active {
     outline: none;
     border: none;
   }
-  .end-flag div p{
+  .dailyCons div p{
     font-size: 14px;
     color: white;
     font-weight: bold;
   }
-  .end-flag div p span{
+  .dailyCons div p span{
     font-size: 14px;
     color: #ccc;
     font-weight: bold;
   }
-  .end-flag button{
+  .sub-btn button{
     background-color: gold;
     border-radius: 50px;
     padding: 10px;
@@ -632,38 +868,45 @@ button.active {
     font-size: 14px;
     font-weight: bold;
   }
-  .end-notebox{
+
+.submail{
     display: flex;
     width: 100%;
     align-items: center;
-    gap: 10px;
+    gap: 100px;
   }
-  .end-notebox div{
+.notification {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+  .mailbox{
     width: 40%;
     display: flex;
     flex-direction: column;
     gap: 15px;
   }
-   .info :nth-child(1){
+   .instant{
     font-size: 16px;
     color: #fff;
     font-weight: bold;
     font-family: sans-serif;
   }
-   .info :nth-child(2){
+   .purchase{
     font-size: 14px;
     color: #fff;
     font-weight: normal;
     font-family: sans-serif;
   }
-  .end-notebox div label{
+  .mailbox label{
     font-size: 14px;
     color: #fff;
     font-weight: normal;
     font-family: sans-serif;
   }
 
-  .end-notebox div textarea{
+  .mailbox textarea{
     font-size: 14px;
     color: #fff;
     font-weight: normal;
@@ -674,34 +917,44 @@ button.active {
     border-bottom: 2px solid #fff;
   }
 
-  footer{
+.footer-container{
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 100px;
+    gap: 35px;
+    
+}
+
+.foot{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
     border-top: 1px solid #fff;
+    width: 100%;
+    padding: 10px 0px;
   }
-  footer ul{
+  .foot ul{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-self: flex-start;
     gap: 10px;
     text-align: justify;
+    width: 100%;
   }
-  footer ul h3 {
+  .foot ul h3 {
     color: #fff;
     font-size: 18px;
     font-weight: bold;
   }
   
-  footer ul h3 .highlight {
+  .foot ul h3 .highlight {
     border-bottom: 3px solid goldenrod;
     padding-bottom: 2px; 
     display: inline-block; 
   }
-  footer ul li{
+  .foot ul li{
     color: #ccc;
     font-size: 14px;
     font-weight: bold;
@@ -738,176 +991,100 @@ button.active {
     border-radius: 99px;
     padding: 3px;
   }
-@media (max-width: 600px) {
-    .container {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 0px  10px 0px 10px ;
-        box-shadow: none;
-        border-radius: 0;
+@media (max-width: 768px) {
+    body{
         width: 100%;
-        gap: 20px;
+        gap: 15px
     }
-    .main{
+    main {
         width: 100%;
-        flex-direction: column;
-        padding: 0px  10px 0px 10px ;
-        justify-content: center;
+        padding: 0px 30px;
+        gap: 15px;
+    }
+    .container{
+        gap: 15px;
+    }
+    .shuffle-image {
+        flex-direction: column-reverse;
+        padding: 10px;
         align-items: center;
+        overflow: hidden;
+    }
+
+    .ratings, .groupImg {
+        flex: unset;
+        max-width: 100%;
+        margin: 10px 0;
+    }
+
+    .ratings h3, .stars p {
+        font-size: 18px;
+    }
+    .tabContainer, 
+   .tabbox,
+   .tabs-btn-box, .tab-content {
+        width: 100%;
+    }
+    .imageBox{
+        display: none;
+    }
+    #Tab2{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
     }
     .firstContainer{
         width: 100%;
-        justify-content: center;
-        align-items: center;
-        padding: 0px 10px;
+        display: flex;
+        flex-direction: column;
     }
     .secondContainer{
         width: 100%;
-        justify-content: center;
-        align-items: center;
-        padding: auto;
-        padding: 0px 10px;
+        margin-top: 10px;
     }
-    .rating-summary {
-        flex-direction: column;
-        width: 100%;
-        padding: 0px 10px;
-        justify-content: center;
-        align-items: center;
-    }
-    .rate{
-        width: 100%;
-    }
-    .review-box {
-        flex-direction: column;
-        width: 100%;
-        padding: 0px 10px;
-    }
-    .submit-btn{
-        width: 100%;
-    }
-    .review-header {
-        width: 100%;
-        gap: 15px;
-        padding: 0px 10px;
-    }
-    .filter-section {
-        width: 100%;
-    }
-    .allreviewbox{
-        width: 100%;
-    }
-    .allreviewbox ul{
-        width: 100%;
-        padding: 0px 10px;
-        align-items: center;
-        justify-content: center;
-    }
-    .reviewhead{
-        width: 100%;
-       flex-direction: column;
-       padding: 0px 10px;
-    }
-    .reviewhead h3{
-       text-align: center;
-    }
-    #sortOption {
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        padding: 0px 10px;
-    }
-    #pagination{
+    .rating-summary{
         display: flex;
         width: 100%;
-        justify-content: flex-start;
-        align-items: center;
-        padding: 0px
     }
-    .revie-wlist{
+    .relatedContent{
         width: 100%;
-        justify-content: center;
-        align-items: center;
-        padding: 0px 10px;
     }
-section{
-    display: flex;
+    .end{
+        overflow: hidden;
+    }
+    .dailyGames{
+        width: 100%;
+    }
+    .dailyCons{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        padding: 0px 20px;
+    }
+    .footer-container, .submail{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .notification{
+        display: flex;
+        flex-direction: column;
+    }
+    .mailbox{
+        width: 100%;
+    }
+    .foot{
+        display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 16px
+    }
+    .app-games{
+        width: 100%
+    }
+    .shear{
+        display: none;
+    }
+    .instant, .purchase{
+        width: 100%;
+    }
 }
-.shear{
-  display: none;
-}
-
-.card {
-  width: 100%;
-  height: 500px;
-  flex-direction: column-reverse;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-
-.card-content {
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.card-content img {
-  margin-bottom: 12px;
-  display: flex;
-  justify-self: center;
-}
-
-.rating {
-  justify-content: center;
-}
-
-.card-image {
-  flex-wrap: wrap;
-  width: 100%;
-  padding: 20px;
-}
-.end-box{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-.endItem {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 0px  10px 0px 10px ;
-}
-.relatedContent{
-    width: 100%;
-    flex-direction: column;
-    padding: 0px  10px 0px 10px ;
-}
-.end{
-    display: flex;
-    width: 100%;
-    overflow: hidden;
-   
-}
-.end-flag{
-    display: flex;
-    width: 100%;
-    background-color: #000;
-}
-footer{
-width: 100%;
-display: flex;
-flex-direction: column;
-border-top: none;
-padding: 0px  10px 0px 10px ;
-}
-.casted p{
-  display: flex;
-  width: 100%;
-  flex-wrap: wrap;
-}
-}
-
-
