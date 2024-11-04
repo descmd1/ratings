@@ -267,6 +267,11 @@ section{
     width: 150px;
     box-sizing: border-box;
 }
+.helpful-selection{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
 
 .review-list {
     width: 100%; 
@@ -297,22 +302,22 @@ section{
     margin: 0;
 }
 
-.notice p{
+.note-text{
     font-size: 14px;
     font-family: inherit;
     font-weight: 700;
-    color: #fff;    
+    color: #fff !important; 
 }
-.play-btn {
+ .playClick{
     display: flex;
     align-items: center;
     justify-content: center;
     border: none;
-    border-radius: 25px; /* Rounded corners */
-    padding: 10px 18px; /* For text width */
+    border-radius: 25px; 
+    padding: 10px 18px; 
     outline: none;
-    background-color: #ffd700;
-    color: #000;
+    background-color: #ffd700 !important;
+    color: #000 !important;
     font-size: 18px;
     font-weight: bold;
     font-family: inherit;
@@ -517,7 +522,6 @@ p {
     font-size: 16px;
     font-weight: bold;
     color: white;
-    padding: 10px;
 }
 
 /* Rating stars and date */
@@ -527,7 +531,7 @@ p {
     width: 100%;
     gap: 5px;
     margin-top: 5px;
-    font-size: 14px;
+    font-size: 14px; 
     padding: 10px;
 }
 .filled{
@@ -564,12 +568,13 @@ p {
     display: flex;
     align-items: center;
     gap: 5px;
-    border: 1px solid #ffd700;
+    border: 1px solid #ffd700 !important;
     border-radius: 15px;
-    color: #ffd700;
+    color: #ffd700 !important;
     padding: 5px 10px;
     cursor: pointer;
     font-size: 14px;
+    margin-bottom: 10px !important;
 }
 
 .helpful-button:hover {
@@ -692,12 +697,12 @@ p {
   }
   
   .tab-panel {
-    display: none; /* Hide all panels by default */
+    display: none !important;
   }
   
   .tab-panel.active {
-    display: block; 
-    display: flex;
+    /* display: block;  */
+    display: flex !important;
     justify-content: space-between;
   }
   .tabInfo{
@@ -876,6 +881,7 @@ p {
     gap: 100px;
   }
 .notification {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -888,12 +894,14 @@ p {
     gap: 15px;
   }
    .instant{
+    width: 100%;
     font-size: 16px;
     color: #fff;
     font-weight: bold;
     font-family: sans-serif;
   }
    .purchase{
+    width: 100%;
     font-size: 14px;
     color: #fff;
     font-weight: normal;
@@ -1067,6 +1075,7 @@ p {
         flex-direction: column;
     }
     .notification{
+        width: 100%;
         display: flex;
         flex-direction: column;
     }
